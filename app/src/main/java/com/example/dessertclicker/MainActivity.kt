@@ -73,8 +73,9 @@ import com.example.dessertclicker.data.Datasource
 import com.example.dessertclicker.model.Dessert
 import com.example.dessertclicker.ui.theme.DessertClickerTheme
 
+private const val TAG = "MainActivity"
+
 class MainActivity : ComponentActivity() {
-    private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -182,12 +183,12 @@ private fun DessertClickerApp(
     var revenue by rememberSaveable { mutableStateOf(0) }
     var dessertsSold by rememberSaveable { mutableStateOf(0) }
 
-    val currentDessertIndex by remember { mutableStateOf(0) }
+    val currentDessertIndex by rememberSaveable { mutableStateOf(0) }
 
-    var currentDessertPrice by remember {
+    var currentDessertPrice by rememberSaveable {
         mutableStateOf(desserts[currentDessertIndex].price)
     }
-    var currentDessertImageId by remember {
+    var currentDessertImageId by rememberSaveable {
         mutableStateOf(desserts[currentDessertIndex].imageId)
     }
 
